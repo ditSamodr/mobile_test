@@ -33,7 +33,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
     final response = await http.get(
       url,
       headers: {
-        'x-api-key': '$apiKey',// Include the API key in the headers
+        'x-api-key': '$apiKey',// 
       },
     );
 
@@ -56,7 +56,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
     final palindromeProvider = Provider.of<Palindrome>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Choose a User')),
+      appBar: AppBar(title: Text('Third Screen')),
       body: RefreshIndicator(
         onRefresh: () async {
           setState(() {
