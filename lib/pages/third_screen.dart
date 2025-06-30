@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:mobile_test/provider/palindrome.dart';
+import 'package:mobile_test/pages/palindrome.dart';
 import 'package:provider/provider.dart';
 
 class ThirdScreen extends StatefulWidget {
@@ -33,7 +33,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
     final response = await http.get(
       url,
       headers: {
-        'x-api-key': '$apiKey',// 
+        'x-api-key': 'apiKey',
       },
     );
 
@@ -53,10 +53,10 @@ class _ThirdScreenState extends State<ThirdScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final palindromeProvider = Provider.of<Palindrome>(context);
+    final palindromeProvider = Provider.of<UserProvider>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Third Screen')),
+      appBar: AppBar(title: const Text('Third Screen')),
       body: RefreshIndicator(
         onRefresh: () async {
           setState(() {
@@ -69,7 +69,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
           itemCount: users.length + (isLoading ? 1 : 0),
           itemBuilder: (context, index) {
             if (index == users.length) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             }
 
             var user = users[index];

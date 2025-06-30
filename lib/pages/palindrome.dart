@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Palindrome with ChangeNotifier{
+class UserProvider with ChangeNotifier{
   String name = '';
   String sentence = '';
   String userName = '';

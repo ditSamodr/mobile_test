@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_test/pages/palindrome.dart';
 import 'package:mobile_test/pages/third_screen.dart';
-import 'package:mobile_test/provider/palindrome.dart';
 import 'package:provider/provider.dart';
 
 class SecondScreen extends StatelessWidget {
@@ -8,31 +8,39 @@ class SecondScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final palindromeProvider = Provider.of<Palindrome>(context);
+    final palindromeProvider = Provider.of<UserProvider>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Second Screen')),
+      appBar: AppBar(title: const Text('Second Screen')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          children: [
-            Text('Welcome', style: TextStyle(fontSize: 24)),
-            SizedBox(height: 20),
+          children: [const
+            Text('Welcome'),
             Text(palindromeProvider.name),
-            Center(child: Text('Selected User Name')),
+
+            SizedBox(height: 50.0,),
+            const Center(child: Text('Selected User Name', style: TextStyle(fontSize: 24),)),
             Text(palindromeProvider.userName),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ThirdScreen()),
-                );
-              },
-              child: Text('Choose a User'),
-            ),
-          ],
-        ),
+            const SizedBox(height: 20),
+            MaterialButton(
+                minWidth: double.infinity,
+                height: 40,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ThirdScreen()),
+                  );
+                },                        
+                color: const Color.fromARGB(255, 83, 112, 207),
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: const Text("Choose a User", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15, color: Colors.white,),),
+            ),          
+          ],         
+        ),       
       ),
     );
   }

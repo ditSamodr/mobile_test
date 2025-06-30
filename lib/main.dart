@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_test/pages/first_screen.dart';
-import 'package:mobile_test/provider/palindrome.dart';
+import 'package:mobile_test/pages/palindrome.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(
     ChangeNotifierProvider(
-      create: (_) => Palindrome(),
+      create: (_) => UserProvider(),
       child: MyApp(),
     )
     );
