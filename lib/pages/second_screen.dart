@@ -18,7 +18,6 @@ class SecondScreen extends StatelessWidget {
           children: [const
             Text('Welcome'),
             Text(palindromeProvider.name),
-
             SizedBox(height: 50.0,),
             const Center(child: Text('Selected User Name', style: TextStyle(fontSize: 24),)),
             Text(palindromeProvider.userName),
